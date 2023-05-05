@@ -35,10 +35,42 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar app>
+    <!-- <v-app-bar app>
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
       <v-toolbar-title>ToDo List App</v-toolbar-title>
+    </v-app-bar> -->
+
+    <v-app-bar
+      app
+      color="#fcb69f"
+      dark
+      src="https://picsum.photos/1920/1080?random"
+      prominent
+    >
+      <template v-slot:img="{ props }">
+        <v-img
+          v-bind="props"
+        ></v-img>
+      </template>
+
+      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+
+      <v-app-bar-title>ToDo List</v-app-bar-title>
+
+      <v-spacer></v-spacer>
+
+      <v-btn icon>
+        <v-icon>mdi-magnify</v-icon>
+      </v-btn>
+
+      <v-btn icon>
+        <v-icon>mdi-heart</v-icon>
+      </v-btn>
+
+      <v-btn icon>
+        <v-icon>mdi-dots-vertical</v-icon>
+      </v-btn>
     </v-app-bar>
 
     <v-main>
