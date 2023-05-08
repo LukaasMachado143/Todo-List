@@ -1,6 +1,16 @@
 <template>
   <div class="main-container">
-    <TaskAddForm />
+    <v-btn
+      class="mx-3 mt-3"
+      fab
+      dark
+      color="indigo"
+      small
+      @click="toggleFormAddTask"
+    >
+      <v-icon dark> mdi-plus </v-icon>
+    </v-btn>
+    <TaskAddForm v-show="showFormAddTask" />
     <v-list flat>
       <v-list-item-group multiple active-class="">
         <div v-for="task in taskArray" :key="task.id">
@@ -23,19 +33,22 @@ export default {
   data() {
     return {
       taskArray: null,
+      showFormAddTask: false,
     };
   },
-  methods:{
-    async getTasks(){
-      const req = await fetch('http://localhost:3000/taskList')
+  methods: {
+    toggleFormAddTask() {
+      this.showFormAddTask = !this.showFormAddTask
+    },
+    async getTasks() {
+      const req = await fetch("http://localhost:3000/taskList");
       const data = await req.json();
-      console.log(data)
-      this.taskArray = data
-    }
+      console.log(data);
+      this.taskArray = data;
+    },
   },
-  mounted(){
+  mounted() {
     this.getTasks();
-  }
-
+  },
 };
 </script>
