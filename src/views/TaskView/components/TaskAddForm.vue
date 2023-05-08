@@ -4,7 +4,6 @@
   <v-col cols="12" sm="6" align="center">
     <!-- Título da Atividade -->
     <v-text-field
-      v-model="message4"
       label="Informe o título da sua atividade..."
       outlined
       clearable
@@ -12,7 +11,6 @@
 
     <!-- Descrição da Atividade -->
     <v-text-field
-      v-model="message4"
       label="Informe a descrição da sua atividade..."
       outlined
       clearable
