@@ -5,10 +5,9 @@
         <v-list-item-action>
           <v-checkbox :input-value="active"></v-checkbox>
         </v-list-item-action>
-
         <v-list-item-content>
-          <v-list-item-title>{{taskName}}</v-list-item-title>
-          <v-list-item-subtitle>{{taskDescription}}</v-list-item-subtitle>
+          <v-list-item-title>{{ taskData.title }}</v-list-item-title>
+          <v-list-item-subtitle>{{ taskData.description }}</v-list-item-subtitle>
         </v-list-item-content>
       </template>
     </v-list-item>
@@ -18,10 +17,7 @@
 <script>
 export default {
   name: "TaskC",
-  props:{
-    taskName: String,
-    taskDescription: String
-  }
+  props: ["taskData"],
 };
 </script>
 
