@@ -22,13 +22,7 @@ export default {
   },
   data() {
     return {
-      taskArray: [
-        {
-          title: "Estudar Vue.js 0",
-          description: "Aprendendo vue.js e vuetify",
-          conclued: false,
-        },
-      ],
+      taskArray: [],
     };
   },
 };
