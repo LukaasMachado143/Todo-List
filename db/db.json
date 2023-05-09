@@ -4,12 +4,12 @@
       "id": 1,
       "title": "Estudar Vue.js 0",
       "description": "Aprendendo vue.js e vuetify",
-      "conclued": false
+      "conclued": true
     },
     {
       "title": "Nova TArefa",
       "description": "Nova tarefa",
-      "conclued": false,
+      "conclued": true,
       "id": 2
     },
     {

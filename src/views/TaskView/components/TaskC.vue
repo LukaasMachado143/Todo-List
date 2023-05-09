@@ -1,9 +1,9 @@
 <template>
   <div>
-    <v-list-item>
-      <template v-slot:default="{ active }">
+    <v-list-item @click="ConluingTask(taskData.id)">
+      <template v-slot:default="{}">
         <v-list-item-action>
-          <v-checkbox :input-value="active"></v-checkbox>
+          <v-checkbox :input-value="taskData.conclued"></v-checkbox>
         </v-list-item-action>
         <v-list-item-content>
           <v-list-item-title>{{ taskData.title }}</v-list-item-title>
@@ -20,6 +20,19 @@
 export default {
   name: "TaskC",
   props: ["taskData"],
+  methods:{
+    async ConluingTask(id){
+      const data = {"conclued":true}
+      const dataJson = JSON.stringify(data);
+      const req = await fetch(`http://localhost:3000/taskList/${id}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: dataJson,
+      });
+
+      await req.json();
+    }
+  }
 };
 </script>
 
