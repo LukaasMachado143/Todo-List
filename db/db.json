@@ -1,34 +1,10 @@
 {
   "taskList": [
     {
-      "id": 1,
-      "title": "Estudar Vue.js 0",
-      "description": "Aprendendo vue.js e vuetify",
-      "conclued": true
-    },
-    {
-      "title": "Nova TArefa",
-      "description": "Nova tarefa",
-      "conclued": true,
-      "id": 2
-    },
-    {
-      "title": "Teste",
-      "description": "teste",
-      "conclued": true,
-      "id": 3
-    },
-    {
-      "title": "sese",
-      "description": "sdsds",
-      "conclued": true,
-      "id": 4
-    },
-    {
-      "title": "Criar função de excluir atividades",
-      "description": "Criar função de excluir atividades",
+      "title": "ffggg",
+      "description": "gggg",
       "conclued": false,
-      "id": 5
+      "id": 1
     }
   ]
 }

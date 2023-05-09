@@ -25,6 +25,11 @@
 export default {
   name: "TaskC",
   props: ["taskData"],
+  data() {
+    return {
+      showDialog: false,
+    };
+  },
   methods: {
     async ConluingTask(id) {
       const data = { conclued: true };
@@ -38,13 +43,16 @@ export default {
       await req.json();
     },
 
-    async DeleteTask(id){
+    async DeleteTask(id) {
       const req = await fetch(`http://localhost:3000/taskList/${id}`, {
-        method: "DELETE"
+        method: "DELETE",
       });
 
       await req.json();
-    }
+      
+    },
+
+
   },
 };
 </script>
