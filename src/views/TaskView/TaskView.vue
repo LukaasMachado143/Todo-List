@@ -50,5 +50,8 @@ export default {
   mounted() {
     this.getTasks();
   },
+  watch:{
+    taskArray(){ this.getTasks();}
+  }
 };
 </script>
