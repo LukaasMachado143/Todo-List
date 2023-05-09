@@ -1,7 +1,7 @@
 <template>
   <div class="main-container">
     <v-btn
-      class="mx-3 mt-3  mb-3"
+      class="mx-3 mt-3 mb-3"
       fab
       dark
       color="indigo"
@@ -10,8 +10,11 @@
     >
       <v-icon dark> mdi-plus </v-icon>
     </v-btn>
-    <hr/>
-    <TaskAddForm v-show="showFormAddTask" @closeFormAddTask="toggleFormAddTask"/>
+    <hr />
+    <TaskAddForm
+      v-show="showFormAddTask"
+      @closeFormAddTask="toggleFormAddTask"
+    />
     <v-list flat>
       <v-list-item-group multiple active-class="">
         <div v-for="task in taskArray" :key="task.id">
@@ -50,8 +53,10 @@ export default {
   mounted() {
     this.getTasks();
   },
-  watch:{
-    taskArray(){ this.getTasks();}
-  }
+  watch: {
+    taskArray() {
+      this.getTasks();
+    },
+  },
 };
 </script>

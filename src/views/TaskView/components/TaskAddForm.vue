@@ -26,7 +26,7 @@
 <script>
 export default {
   name: "TaskAddForm",
-  emits:['closeFormAddTask'],
+  emits: ["closeFormAddTask"],
   data() {
     return {
       title: null,
@@ -35,7 +35,6 @@ export default {
   },
   methods: {
     async InsertTask() {
-
       const data = {
         title: this.title,
         description: this.description,
@@ -44,25 +43,21 @@ export default {
 
       const dataJson = JSON.stringify(data);
 
-      const req = await fetch("http://localhost:3000/taskList",{
+      const req = await fetch("http://localhost:3000/taskList", {
         method: "POST",
-        headers: {"Content-Type" : "application/json"},
-        body: dataJson
+        headers: { "Content-Type": "application/json" },
+        body: dataJson,
       });
 
       const res = await req.json();
-
-      console.log(res);
-
-
       this.ThisCloseFormAddTask();
     },
 
-    ThisCloseFormAddTask(){
-      this.title= null
-      this.description = null
-      this.$emit('closeFormAddTask');
-    }
+    ThisCloseFormAddTask() {
+      this.title = null;
+      this.description = null;
+      this.$emit("closeFormAddTask");
+    },
   },
 };
 </script>
