@@ -49,7 +49,7 @@ export default {
         body: dataJson,
       });
 
-      const res = await req.json();
+      await req.json();
       this.ThisCloseFormAddTask();
     },
 
