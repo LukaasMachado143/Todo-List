@@ -11,6 +11,11 @@
             taskData.description
           }}</v-list-item-subtitle>
         </v-list-item-content>
+        <v-list-item-action>
+          <v-btn icon @click.stop="DeleteTask(taskData.id)">
+            <v-icon color="red darken-1">mdi-trash-can</v-icon>
+          </v-btn>
+        </v-list-item-action>
       </template>
     </v-list-item>
   </div>
@@ -20,9 +25,9 @@
 export default {
   name: "TaskC",
   props: ["taskData"],
-  methods:{
-    async ConluingTask(id){
-      const data = {"conclued":true}
+  methods: {
+    async ConluingTask(id) {
+      const data = { conclued: true };
       const dataJson = JSON.stringify(data);
       const req = await fetch(`http://localhost:3000/taskList/${id}`, {
         method: "PATCH",
@@ -31,10 +36,18 @@ export default {
       });
 
       await req.json();
+    },
+
+    async DeleteTask(id){
+      const req = await fetch(`http://localhost:3000/taskList/${id}`, {
+        method: "DELETE"
+      });
+
+      await req.json();
     }
-  }
+  },
 };
 </script>
 
-<style>
+<style scoped>
 </style>

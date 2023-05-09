@@ -18,7 +18,7 @@
       ></v-text-field>
 
       <!-- botão para adicionar as tarefas -->
-      <v-btn @click="InsertTask">Adicionar</v-btn>
+      <v-btn color="indigo" dark @click="InsertTask">Adicionar</v-btn>
     </v-col>
   </div>
 </template>
