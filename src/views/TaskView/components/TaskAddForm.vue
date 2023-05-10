@@ -40,16 +40,18 @@ export default {
         conclued: false,
       };
 
-      const dataJson = JSON.stringify(data);
+      this.$emit('AddTaskInArray', data)
 
-      const req = await fetch("http://localhost:3000/taskList", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: dataJson,
-      });
+      // const dataJson = JSON.stringify(data);
 
-      await req.json();
-      this.$emit("UpdateView");
+      // const req = await fetch("http://localhost:3000/taskList", {
+      //   method: "POST",
+      //   headers: { "Content-Type": "application/json" },
+      //   body: dataJson,
+      // });
+
+      // await req.json();
+      // this.$emit("UpdateView");
       this.IssueDataDialog('create')
       this.ThisCloseFormAddTask();
     },
