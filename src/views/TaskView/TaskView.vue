@@ -19,27 +19,32 @@
     <v-list flat>
       <v-list-item-group multiple active-class="">
         <div v-for="task in taskArray" :key="task.id">
-          <TaskC :taskData="task" @UpdateView="UpdateView"/>
+          <TaskC :taskData="task" @UpdateView="UpdateView" @runDialog="runDialog"/>
         </div>
       </v-list-item-group>
     </v-list>
+    <TaskDialog :showDialog="showDialog" :title="titleDialog" :description="descriptionDialog"/>
   </div>
 </template>
 
 <script>
 import TaskAddForm from "./components/TaskAddForm.vue";
 import TaskC from "./components/TaskC.vue";
+import TaskDialog from './components/TaskDialog.vue';
 export default {
   name: "TaskView",
   components: {
     TaskC,
     TaskAddForm,
+    TaskDialog,
   },
   data() {
     return {
       taskArray: null,
       showFormAddTask: false,
-      showDialog: true,
+      showDialog: false,
+      titleDialog: null,
+      descriptionDialog: null
     };
   },
   methods: {
@@ -54,6 +59,13 @@ export default {
 
     async UpdateView(){
       this.getTasks();
+    },
+
+    runDialog(data){
+      this.showDialog = true
+      this.titleDialog = data.title
+      this.descriptionDialog = data.description
+      setTimeout(() => this.showDialog = false,3000)
     }
   },
   mounted(){

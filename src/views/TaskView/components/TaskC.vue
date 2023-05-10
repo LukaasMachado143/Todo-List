@@ -46,6 +46,7 @@ export default {
 
       await req.json();
       this.$emit('UpdateView')
+      this.$emit('runDialog', {title: this.taskData.title, description: this.taskData.description})
     },
   },
 };

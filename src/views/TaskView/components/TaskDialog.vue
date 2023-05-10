@@ -2,7 +2,7 @@
   <v-dialog
     transition="dialog-top-transition"
     max-width="600"
-    v-model="showdialogLocal"
+    :value="showDialog"
   >
     <template>
       <v-card>
@@ -10,11 +10,11 @@
         <v-card-text>
           <div class="text-line">
             <div class="title-task">Título:</div>
-            <!-- <div class="description-task">{{ taskData.title }}</div> -->
+            <div class="description-task">{{ this.title }}</div>
           </div>
           <div class="text-line">
             <div class="title-task">Descrição:</div>
-            <!-- <div class="description-task">{{ taskData.description }}</div> -->
+            <div class="description-task">{{ this.description }}</div>
           </div>
           <div class="text-line">
             <div class="title-task">Excluída com sucesso ...</div>
@@ -28,15 +28,7 @@
 <script>
 export default {
   name: "TaskDialog",
-  props: ["showDialog"],
-  data(){
-    return{
-        showdialogLocal: true
-    }
-  },
-  created(){
-    setTimeout(() => this.showdialogLocal = false,3000)
-  }
+  props: ["showDialog","title", "description"],
 };
 </script>
 
