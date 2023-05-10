@@ -17,7 +17,7 @@
             <div class="description-task">{{ this.description }}</div>
           </div>
           <div class="text-line">
-            <div class="title-task">Excluída com sucesso ...</div>
+            <div class="title-task">{{ this.action }}</div>
           </div>
         </v-card-text>
       </v-card>
@@ -28,7 +28,7 @@
 <script>
 export default {
   name: "TaskDialog",
-  props: ["showDialog","title", "description"],
+  props: ["showDialog","title", "description", "action"],
 };
 </script>
 

@@ -15,6 +15,7 @@
       v-show="showFormAddTask"
       @closeFormAddTask="toggleFormAddTask"
       @UpdateView="UpdateView"
+      @runDialog="runDialog"
     />
     <v-list flat>
       <v-list-item-group multiple active-class="">
@@ -23,7 +24,7 @@
         </div>
       </v-list-item-group>
     </v-list>
-    <TaskDialog :showDialog="showDialog" :title="titleDialog" :description="descriptionDialog"/>
+    <TaskDialog :showDialog="showDialog" :title="titleDialog" :description="descriptionDialog" :action="actionDialog"/>
   </div>
 </template>
 
@@ -44,7 +45,8 @@ export default {
       showFormAddTask: false,
       showDialog: false,
       titleDialog: null,
-      descriptionDialog: null
+      descriptionDialog: null,
+      actionDialog: null,
     };
   },
   methods: {
@@ -65,6 +67,15 @@ export default {
       this.showDialog = true
       this.titleDialog = data.title
       this.descriptionDialog = data.description
+      if(data.operation == 'delete'){
+        this.actionDialog = 'Excluída com sucesso ...'
+      }
+      if(data.operation == 'conclude'){
+        this.actionDialog = 'Concluída com sucesso ...'
+      }
+      if(data.operation == 'create'){
+        this.actionDialog = 'Criada com sucesso ...'
+      }
       setTimeout(() => this.showDialog = false,3000)
     }
   },

@@ -26,7 +26,6 @@
 <script>
 export default {
   name: "TaskAddForm",
-  emits: ["closeFormAddTask"],
   data() {
     return {
       title: null,
@@ -51,6 +50,7 @@ export default {
 
       await req.json();
       this.$emit("UpdateView");
+      this.IssueDataDialog('create')
       this.ThisCloseFormAddTask();
     },
 
@@ -59,6 +59,10 @@ export default {
       this.description = null;
       this.$emit("closeFormAddTask");
     },
+
+    IssueDataDialog(operationData){
+      this.$emit('runDialog', {title: this.title, description: this.description, operation: operationData})
+    }
   },
 };
 </script>

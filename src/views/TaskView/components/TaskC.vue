@@ -37,6 +37,7 @@ export default {
 
       await req.json();
       this.$emit('UpdateView')
+      this.IssueDataDialog('conclude')
     },
 
     async DeleteTask(id) {
@@ -46,8 +47,12 @@ export default {
 
       await req.json();
       this.$emit('UpdateView')
-      this.$emit('runDialog', {title: this.taskData.title, description: this.taskData.description})
+      this.IssueDataDialog('delete')
     },
+
+    IssueDataDialog(operationData){
+      this.$emit('runDialog', {title: this.taskData.title, description: this.taskData.description, operation: operationData})
+    }
   },
 };
 </script>
