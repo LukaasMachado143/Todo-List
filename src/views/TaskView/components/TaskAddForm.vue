@@ -50,6 +50,7 @@ export default {
       });
 
       await req.json();
+      this.$emit("UpdateView");
       this.ThisCloseFormAddTask();
     },
 

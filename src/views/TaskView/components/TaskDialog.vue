@@ -16,6 +16,9 @@
             <div class="title-task">Descrição:</div>
             <!-- <div class="description-task">{{ taskData.description }}</div> -->
           </div>
+          <div class="text-line">
+            <div class="title-task">Excluída com sucesso ...</div>
+          </div>
         </v-card-text>
       </v-card>
     </template>
@@ -25,21 +28,14 @@
 <script>
 export default {
   name: "TaskDialog",
-  props: ["taskData", "showDialog"],
+  props: ["showDialog"],
   data(){
     return{
-        showdialogLocal: false
+        showdialogLocal: true
     }
   },
-  watch:{
-    showDialog(){
-        this.showdialogLocal = this.showDialog
-    }
-  },
-  methods:{
-    closeDialog(){
-        setTimeout(this.$emit('closeDialog'),3000)
-    }
+  created(){
+    setTimeout(() => this.showdialogLocal = false,3000)
   }
 };
 </script>

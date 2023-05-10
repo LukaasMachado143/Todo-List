@@ -25,11 +25,6 @@
 export default {
   name: "TaskC",
   props: ["taskData"],
-  data() {
-    return {
-      showDialog: false,
-    };
-  },
   methods: {
     async ConluingTask(id) {
       const data = { conclued: true };
@@ -41,6 +36,7 @@ export default {
       });
 
       await req.json();
+      this.$emit('UpdateView')
     },
 
     async DeleteTask(id) {
@@ -49,10 +45,8 @@ export default {
       });
 
       await req.json();
-      
+      this.$emit('UpdateView')
     },
-
-
   },
 };
 </script>

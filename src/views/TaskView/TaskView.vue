@@ -1,6 +1,5 @@
 <template>
   <div class="main-container">
-    <TaskDialog @closeDialog="closeDialog" :showDialog="showDialog" />
     <v-btn
       class="mx-3 mt-3 mb-3"
       fab
@@ -15,11 +14,12 @@
     <TaskAddForm
       v-show="showFormAddTask"
       @closeFormAddTask="toggleFormAddTask"
+      @UpdateView="UpdateView"
     />
     <v-list flat>
       <v-list-item-group multiple active-class="">
         <div v-for="task in taskArray" :key="task.id">
-          <TaskC :taskData="task" />
+          <TaskC :taskData="task" @UpdateView="UpdateView"/>
         </div>
       </v-list-item-group>
     </v-list>
@@ -29,19 +29,17 @@
 <script>
 import TaskAddForm from "./components/TaskAddForm.vue";
 import TaskC from "./components/TaskC.vue";
-import TaskDialog from './components/TaskDialog.vue';
 export default {
   name: "TaskView",
   components: {
     TaskC,
     TaskAddForm,
-    TaskDialog
   },
   data() {
     return {
       taskArray: null,
       showFormAddTask: false,
-      showDialog: false
+      showDialog: true,
     };
   },
   methods: {
@@ -53,19 +51,13 @@ export default {
       const data = await req.json();
       this.taskArray = data;
     },
-    closeDialog(){
-      this.showDialog = !this.showDialog
-      // setTimeout(() => {this.showDialog = false})
-      
+
+    async UpdateView(){
+      this.getTasks();
     }
   },
-  mounted() {
+  mounted(){
     this.getTasks();
-  },
-  watch: {
-    taskArray() {
-      this.getTasks();
-    },
-  },
+  }
 };
 </script>
