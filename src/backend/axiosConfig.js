@@ -7,7 +7,7 @@ function getURL() {
   ) {
     return "http://localhost:3000";
   } else {
-    return "https://back-end-todo-list-ygai.vercel.app";
+    return "https://back-end-todo-list-ygai.vercel.app/";
   }
 }
 
