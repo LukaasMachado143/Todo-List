@@ -3,7 +3,7 @@
     {
       "title": "Teste",
       "description": "Teste",
-      "conclued": false,
+      "isConclued": false,
       "id": 1
     }
   ]
